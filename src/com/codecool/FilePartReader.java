@@ -9,7 +9,6 @@ import java.util.List;
 
 public class FilePartReader {
 
-    private File file = new File("/home/kali/codecool/JAVA/filepartreader-testing-with-junit-KALIWWA/src/com/codecool/test.txt");
 
     public void setup(String filePath, int fromLine, int toLine) {
 
@@ -19,37 +18,34 @@ public class FilePartReader {
     }
 
     public String read() throws IOException {
-
-        String content;
-        if (!Desktop.isDesktopSupported()) {
-            System.out.println("Desktop is not supported!");
+        File file = new File("/home/kali/codecool/JAVA/filepartreader-testing-with-junit-KALIWWA/src/com/codecool/test.txt");
+        StringBuilder content = new StringBuilder();
+        List<String> allLinesList = Files.readAllLines(file.toPath());
+        for (int i = 0; i < allLinesList.size() - 1; i++) {
+            content.append(allLinesList.get(i));
+            content.append(",");
         }
+        return String.valueOf(content);
 
-        Desktop desktop = Desktop.getDesktop();
-        if (file.exists()) {
-            desktop.open(file);
-            content = Arrays.toString(Files.readAllBytes(file.toPath()));
-            return content;
-        } else {
-            throw new IllegalArgumentException("No such a file!");
-        }
     }
 
     public String readLines(int fromLine, int toLine) {
         StringBuilder requestedLines = new StringBuilder();
         try {
-            List<String> allLinesList = Files.readAllLines(file.toPath());
+            String fileString = read();
+            String[] allLinesList = fileString.split(",");
+
             for (int i = 1; i <= toLine; i++) {
                 if (i >= fromLine) {
-                    String singleLine = allLinesList.get(i);
+                    String singleLine = allLinesList[i];
                     requestedLines.append(singleLine);
                 }
             }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
         return String.valueOf(requestedLines);
     }
-
 
 }
