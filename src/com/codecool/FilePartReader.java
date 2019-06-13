@@ -32,7 +32,6 @@ public class FilePartReader {
                 content.append(allLinesList.get(i));
             }
         }
-        System.out.println(content + " <- read()");
         return String.valueOf(content);
 
     }
@@ -43,9 +42,12 @@ public class FilePartReader {
             String fileString = read();
             String[] allLinesList = fileString.split(",");
 
-            for (int i = 0; i <= toLine; i++) {
-                if (i >= fromLine) {
-                    String singleLine = allLinesList[i - 1];
+            for (int i = 1; i <= toLine; i++) {
+                String singleLine = allLinesList[i-1];
+                if (i >= fromLine && i < toLine) {
+                    requestedLines.append(singleLine);
+                    requestedLines.append(",");
+                } else if (i == toLine) {
                     requestedLines.append(singleLine);
                 }
             }
@@ -53,7 +55,6 @@ public class FilePartReader {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println(requestedLines + " <- readLines(int fromLine, int toLine)");
         return String.valueOf(requestedLines);
     }
 
@@ -63,14 +64,19 @@ public class FilePartReader {
             String fileString = read();
             String[] allLinesList = fileString.split(",");
 
-            for (String singleLine : allLinesList) {
-                requestedLines.append(singleLine);
+            for (int i = 1; i <= allLinesList.length; i++) {
+                String singleLine = allLinesList[i-1];
+                if (i == allLinesList.length) {
+                    requestedLines.append(singleLine);
+                } else {
+                    requestedLines.append(singleLine);
+                    requestedLines.append(",");
+                }
             }
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println(requestedLines + " <- readLines()");
         return String.valueOf(requestedLines);
     }
 
