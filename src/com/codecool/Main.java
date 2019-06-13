@@ -14,5 +14,6 @@ public class Main {
 
 
         fileWordAnalyzer.getWordsOrderedAlphabetically();
+        fileWordAnalyzer.getWordsContainingSubstring("da");
         }
 }

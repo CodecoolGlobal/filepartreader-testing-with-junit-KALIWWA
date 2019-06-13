@@ -24,9 +24,18 @@ public class FileWordAnalyzer {
     }
 
 
-//    public List getWordsContainingSubstring(String subString) {
-//        List<String> allLinesArray = createArrayList();
-//
-//
-//    }
+    public List getWordsContainingSubstring(String subString) {
+        List<String> allLinesArray = createArrayList();
+        List<String> allWordsByLineArray = new ArrayList<>();
+
+        for (String singleLine : allLinesArray) {
+            List<String> singleLineWordsArray = new ArrayList<>(Arrays.asList(singleLine.split(" ")));
+            for (String singleWord : singleLineWordsArray) {
+                if (singleWord.contains(subString)) {
+                    allWordsByLineArray.add(singleWord);
+                }
+            }
+        }
+        return allWordsByLineArray;
+    }
 }
