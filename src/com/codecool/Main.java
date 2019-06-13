@@ -8,8 +8,8 @@ public class Main {
         String requestedLines = filePartReader.readLines();
         String requestedLinesFromTo = filePartReader.readLines(2,4);
 
-        System.out.println(requestedLines + " <- readLines()");
-        System.out.println(requestedLinesFromTo + " <- readLines(from to)");
+//        System.out.println(requestedLines + " <- readLines()");
+//        System.out.println(requestedLinesFromTo + " <- readLines(from to)");
 
 
 

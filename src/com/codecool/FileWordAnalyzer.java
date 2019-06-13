@@ -19,7 +19,7 @@ public class FileWordAnalyzer {
         List<String> allLinesArray = createArrayList();
 
         allLinesArray.sort(String::compareToIgnoreCase);
-        System.out.println(allLinesArray + " <- getWordsOrderedAlphabetically()");
+//        System.out.println(allLinesArray + " <- getWordsOrderedAlphabetically()");
         return allLinesArray;
     }
 
@@ -51,7 +51,7 @@ public class FileWordAnalyzer {
                 }
             }
         }
-        System.out.println(allWordsByLineArray);
+//        System.out.println(allWordsByLineArray);
         return allWordsByLineArray;
     }
 }

@@ -43,7 +43,7 @@ public class FilePartReader {
             String[] allLinesList = fileString.split(",");
 
             for (int i = 1; i <= toLine; i++) {
-                String singleLine = allLinesList[i-1];
+                String singleLine = allLinesList[i - 1];
                 if (i >= fromLine && i < toLine) {
                     requestedLines.append(singleLine);
                     requestedLines.append(",");
@@ -65,7 +65,7 @@ public class FilePartReader {
             String[] allLinesList = fileString.split(",");
 
             for (int i = 1; i <= allLinesList.length; i++) {
-                String singleLine = allLinesList[i-1];
+                String singleLine = allLinesList[i - 1];
                 if (i == allLinesList.length) {
                     requestedLines.append(singleLine);
                 } else {
