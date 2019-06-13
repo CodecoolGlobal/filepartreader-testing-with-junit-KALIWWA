@@ -38,4 +38,20 @@ public class FileWordAnalyzer {
         }
         return allWordsByLineArray;
     }
+
+    public List getStringsWhichPalindromes() {
+        List<String> allLinesArray = createArrayList();
+        List<String> allWordsByLineArray = new ArrayList<>();
+
+        for (String singleLine : allLinesArray) {
+            List<String> singleLineWordsArray = new ArrayList<>(Arrays.asList(singleLine.split(" ")));
+            for (String singleWord : singleLineWordsArray) {
+                if (new StringBuilder(singleWord).reverse().toString().equals(singleWord)) {
+                    allWordsByLineArray.add(singleWord);
+                }
+            }
+        }
+        System.out.println(allWordsByLineArray);
+        return allWordsByLineArray;
+    }
 }
