@@ -7,6 +7,8 @@ import java.util.List;
 
 public class FilePartReader {
 
+    private File file = new File("/home/kali/codecool/JAVA/filepartreader-testing-with-junit-KALIWWA/src/com/codecool/test.txt");
+
     public FilePartReader() {
         String filePath = "invalid";
         int fromLine = -1;
@@ -20,8 +22,8 @@ public class FilePartReader {
         }
     }
 
-    private String read() throws IOException {
-        File file = new File("/home/kali/codecool/JAVA/filepartreader-testing-with-junit-KALIWWA/src/com/codecool/test.txt");
+    public String read() throws IOException {
+
         StringBuilder content = new StringBuilder();
         List<String> allLinesList = Files.readAllLines(file.toPath());
         for (int i = 0; i < allLinesList.size(); i++) {
