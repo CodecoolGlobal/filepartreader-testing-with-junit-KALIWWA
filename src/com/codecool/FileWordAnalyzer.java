@@ -36,6 +36,7 @@ public class FileWordAnalyzer {
                 }
             }
         }
+//        System.out.println(allWordsByLineArray);
         return allWordsByLineArray;
     }
 

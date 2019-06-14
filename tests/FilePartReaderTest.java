@@ -3,16 +3,11 @@ import com.codecool.FilePartReader;
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.fail;
 
 class FilePartReaderTest {
 
     private FilePartReader filePartReader = new FilePartReader();
 
-    @org.junit.jupiter.api.Test
-    void setup() {
-        fail("This test has yet to be implemented");
-    }
 
     @org.junit.jupiter.api.Test
     void read() throws IOException {
